@@ -49,7 +49,7 @@ public class BambouUtils {
     public static String toString(Object content) throws RestException {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(content);
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(content);
         } catch (JsonProcessingException ex) {
             throw new RestException(ex);
         }
